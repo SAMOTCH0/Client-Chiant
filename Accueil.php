@@ -6,7 +6,7 @@
     <title>Formulaire de Connexion</title>
 </head>
 <body>
-    <form action="ConnexionBDD.php" method="post">
+    <form action="" method="post">
         <label for="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required><br><br>
         
