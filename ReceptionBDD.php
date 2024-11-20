@@ -1,12 +1,21 @@
 <?php
 require_once 'ConnexionBDD.php';
+
+// Connexion à la base de données
 $test = PDOsql::connexion();
 
-$requete = $test->prepare("select * from Utilisateur");
-$requete->execute();
-$result = $requete->fetchAll(PDO::FETCH_ASSOC);
+try {
+    // Préparation et exécution de la requête
+    $requete = $test->prepare("SELECT * FROM Utilisateur");
+    $requete->execute();
+    $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($result as $row) {
-    echo print_r($row, true) . "\n";
+    // Affichage des résultats
+    foreach ($result as $row) {
+        echo '<pre>' . print_r($row, true) . '</pre>';
+    }
+} catch (PDOException $e) {
+    // Gestion des erreurs
+    echo 'Erreur : ' . $e->getMessage();
 }
 ?>
