@@ -2,7 +2,12 @@
 require_once 'ConnexionBDD.php';
 $test = PDOsql::connexion();
 
-$requete = $test->prepare("SELECT * FROM Utilisateur");
+$user = $_GET['user'];
+
+
+
+$requete = $test->prepare("insert into Utilisateur (Nom) values (:user)");
+$requete->bindParam(':user', $user);
 $requete->execute();
 $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
