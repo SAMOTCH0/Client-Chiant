@@ -16,7 +16,7 @@ $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        document.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             fetch('test.php', {
                 method: 'POST',
