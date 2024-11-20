@@ -1,36 +1,22 @@
-<?php
-require_once 'ConnectorPDO.php';
-
-// Your code here
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-
-    try {
-        $pdo = new ConnectorPDO();
-        $stmt = $pdo->prepare("INSERT INTO Utilisateur (Nom, Prenom, Email) VALUES (:Nom, :Prenom :Email)");
-        $stmt->bindParam(':Nom', $nom);
-        $stmt->bindParam(':Prenom', $prenom);
-        $stmt->bindParam(':Email', $email);
-        $stmt->execute();
-        echo "Data inserted successfully!";
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
-}
-?>
-
-<form method="post" action="">
-    <label for="nom">nom:</label>
-    <input type="text" id="nom" nom="nom" required>
-    <br>
-    <label for="prenom">prenom:</label>
-    <input type="prenom" id="prenom" nom="prenom" required>
-    <br>
-    <label for="email">email:</label>
-    <input type="email" id="email" nom="email" required>
-    <br>
-    <input type="submit" value="Submit">
-</form>
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Connexion</title>
+</head>
+<body>
+    <form action="ConnexionBDD.php" method="post">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+        
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <button type="submit">Envoyer</button>
+    </form>
+</body>
+</html>
