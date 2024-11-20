@@ -2,7 +2,7 @@
 require_once 'ConnexionBDD.php';
 $test = PDOsql::connexion();
 
-$nom = $_POST['user'];
+$nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $email =  $_POST['email'];
 
