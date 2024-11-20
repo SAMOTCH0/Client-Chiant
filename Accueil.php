@@ -32,7 +32,7 @@
             }).then(function(data) {
                 console.log(data);
             });
-            window.localtion.replace('victoire.html'); 
+            window.location.replace('victoire.html'); 
 
         });
     });
