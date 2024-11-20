@@ -6,5 +6,7 @@ $requete = $test->prepare("select * from Utilisateur");
 $requete->execute();
 $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-echo print_r($result);
+foreach ($result as $row) {
+    echo print_r($row, true) . "\n";
+}
 ?>
