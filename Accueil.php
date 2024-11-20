@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $pdo = new ConnectorPDO();
-        $stmt = $pdo->prepare("INSERT INTO users (nom, prenom) VALUES (:nom, :prenom)");
-        $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':prenom', $prenom);
-        $stmt->bindParam(':email', $email);
+        $stmt = $pdo->prepare("INSERT INTO Utilisateur (Nom, Prenom, Email) VALUES (:Nom, :Prenom :Email)");
+        $stmt->bindParam(':Nom', $nom);
+        $stmt->bindParam(':Prenom', $prenom);
+        $stmt->bindParam(':Email', $email);
         $stmt->execute();
         echo "Data inserted successfully!";
     } catch (PDOException $e) {
@@ -33,4 +33,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <br>
     <input type="submit" value="Submit">
 </form>
-?>
+
