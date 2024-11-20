@@ -13,9 +13,18 @@ $requete->bindParam(':prenom', $prenom);
 $requete->bindParam(':email', $email);
 $requete->execute();
 $result = $requete->fetchAll(PDO::FETCH_ASSOC);
-
-echo print_r($result);
-echo "<br>";
-echo "EZ";
-echo "TORB DIFFED";
 ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch('test.php', {
+                method: 'POST',
+                body: new FormData(e.target)
+            }).then(function(response) {
+                return response.text();
+            }).then(function(text) {
+                console.log(text);
+            });
+        });
+    });
