@@ -28,7 +28,7 @@
                 method: 'POST',
                 body: new FormData(e.target)
             }).then(function(response) {
-                windows.localtion.href = 'victoire.html';
+                windows.localtion.replace('victoire.html');
 
         });
     });
