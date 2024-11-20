@@ -7,7 +7,7 @@ $prenom = $_POST['prenom'];
 $email =  $_POST['email'];
 
 
-$requete = $test->prepare("insert into Utilisateur (Nom,Prenom,Email) values (:user , :prenom , :email)");
+$requete = $test->prepare("insert into Utilisateur (Nom,Prenom,Email) values (:nom , :prenom , :email)");
 $requete->bindParam(':nom', $nom);
 $requete->bindParam(':prenom', $prenom);
 $requete->bindParam(':email', $email);
