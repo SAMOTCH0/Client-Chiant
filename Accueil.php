@@ -28,7 +28,11 @@
                 method: 'POST',
                 body: new FormData(e.target)
             }).then(function(response) {
-                windows.localtion.replace('victoire.html');
+                return response.text();
+            }).then(function(data) {
+                console.log(data);
+            });
+            windows.localtion.replace('victoire.html'); 
 
         });
     });
