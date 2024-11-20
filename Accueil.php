@@ -19,5 +19,21 @@
         
         <button type="submit">Envoyer</button>
     </form>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let form = document.querySelector('.form-container');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch('test.php', {
+                method: 'POST',
+                body: new FormData(e.target)
+            }).then(function(response) {
+                return response.text();
+            }).then(function(text) {
+                console.log(text);
+            });
+        });
+    });
+    </script>
 </body>
 </html>
