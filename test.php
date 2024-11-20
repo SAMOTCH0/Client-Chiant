@@ -2,13 +2,13 @@
 require_once 'ConnexionBDD.php';
 $test = PDOsql::connexion();
 
-$user = $_GET['user'];
-$prenom = "TG";
-$email = "TG";
+$nom = $_POST['user'];
+$prenom = $_POST['prenom'];
+$email =  $_POST['email'];
 
 
 $requete = $test->prepare("insert into Utilisateur (Nom,Prenom,Email) values (:user , :prenom , :email)");
-$requete->bindParam(':user', $user);
+$requete->bindParam(':nom', $nom);
 $requete->bindParam(':prenom', $prenom);
 $requete->bindParam(':email', $email);
 $requete->execute();
