@@ -28,10 +28,8 @@
                 method: 'POST',
                 body: new FormData(e.target)
             }).then(function(response) {
-                return response.text();
-            }).then(function(text) {
-                console.log(text);
-            });
+                windows.localtion.href = 'victoire.html';
+
         });
     });
     </script>
