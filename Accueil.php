@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="EnvoieBDD.py" method="post" class="form-container">
+    <form action="EnvoieBDD.php" method="post" class="form-container">
         <label for="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required><br><br>
         
@@ -24,7 +24,7 @@
         let form = document.querySelector('.form-container');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            fetch('EnvoieBDD.py', {
+            fetch('EnvoieBDD.php', {
                 method: 'POST',
                 body: new FormData(e.target)
             }).then(function(response) {
