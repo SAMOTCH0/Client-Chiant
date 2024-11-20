@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link rel="stylesheet" href="css.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de Connexion</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="test.php" method="post">
+    <form action="test.php" method="post" class="form-container">
         <label for="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required><br><br>
         
