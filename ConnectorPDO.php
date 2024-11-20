@@ -1,22 +1,21 @@
 <?php
 class ConnectorPDO {
-    private $host = '10.20.5.70:3306';
-    private $db = 'Formulaire';
-    private $user = 'root';
-    private $pass = 'admin1234';
-    private $charset = 'utf8mb4';
     private $pdo;
 
-    public function __construct() {
-        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
-        $options = [
+    public function __construct($host = '10.20.5.70:3306', $db = 'Formulaire', $user = 'root', $pass = 'admin1234', $charset = 'utf8mb4') {
+        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+        $this->pdo = new PDO($dsn, $user, $pass, [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
-        ];
+        ]);
 
         try {
-            $this->pdo = new PDO($dsn, $this->user, $this->pass, $options);
+            if (empty($options)) {
+            $this->pdo = new PDO($dsn, $user, $pass);
+            } else {
+            $this->pdo = new PDO($dsn, $user, $pass, $options);
+            }
         } catch (PDOException $e) {
             throw new PDOException($e->getMessage(), (int)$e->getCode());
         }
@@ -24,6 +23,7 @@ class ConnectorPDO {
 
     public function getConnection() {
         return $this->pdo;
+        
     }
 }
 ?>
